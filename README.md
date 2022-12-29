@@ -42,7 +42,7 @@ Through the installation process, you can start to chat with your own AI assista
     - `LINE_CHANNEL_SECRET` with the LINE [channel secret](/demo/line-channel-secret.png).
     - `APP_LANG` with `en`.
   - Click the "Deploy" button and wait for the deployment to complete.
-  - Go to the dashboard, click the "Domains" button and copy the application URL, e.g. "<https://gpt-ai-assistant.vercel.app/>".
+  - Go to the dashboard, copy the application URL, e.g. "<https://gpt-ai-assistant.vercel.app/>".
 - Go back to the [LINE](https://developers.line.biz/) website.
   - Go to the page of "My AI Assistant", click the "Messaging API" tab, set the "Webhook URL", e.g. "<https://gpt-ai-assistant.vercel.app/webhook>" and click the "Update" button.
   - Click the "Verify" button to verify the webhook call is successful.
