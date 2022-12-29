@@ -46,7 +46,7 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
   - 點選「Deploy」按鈕，等待部署完成。
   - 回到專案首頁，複製應用程式網址（Domains），例如「<https://gpt-ai-assistant.vercel.app/>」。
 - 回到 [LINE](https://developers.line.biz/) 平台。
-  - 進到「My AI Assistant」頻道頁面，點選「Messaging API」頁籤，設置「Webhook URL」，例如「<https://gpt-ai-assistant.vercel.app/webhook>」，點選「Update」按鈕。
+  - 進到「My AI Assistant」頻道頁面，點選「Messaging API」頁籤，設置「Webhook URL」，填入應用程式網址並加上「/webhook」路徑，例如「<https://gpt-ai-assistant.vercel.app/webhook>」，點選「Update」按鈕。
   - 點選「Verify」按鈕，驗證是否呼叫成功。
   - 將「Use webhook」功能打開。
   - 將「Auto-reply messages」功能關閉。
