@@ -1,11 +1,15 @@
 import { AxiosError } from 'axios';
+import { writeHistory } from './histories.js';
 import { MESSAGE_TYPE_IMAGE, MESSAGE_TYPE_TEXT } from '../services/line.js';
 import { MessageAction } from './actions/index.js';
 import Event from './event.js';
 import { ImageMessage, TemplateMessage, TextMessage } from './messages/index.js';
+import fetchUser from '../utils/fetch-user.js';
 
 class Context {
   event;
+
+  displayName;
 
   messages = [];
 
@@ -14,6 +18,11 @@ class Context {
    */
   constructor(event) {
     this.event = event;
+  }
+
+  get contextId() {
+    if (this.event.isGroup) return this.event.source.groupId;
+    return this.event.source.userId;
   }
 
   /**
@@ -36,6 +45,17 @@ class Context {
   get argument() {
     if (!this.event.isText) return this.event.message.type;
     return this.event.text.substring(this.event.text.indexOf(' ') + 1);
+  }
+
+  async initialize() {
+    try {
+      const user = await fetchUser(this.userId);
+      this.displayName = user.displayName;
+    } catch {
+      this.displayName = this.userId.slice(0, 6);
+    }
+    writeHistory(this.contextId, this.displayName, this.event.trimmedText);
+    return this;
   }
 
   /**
@@ -127,14 +147,9 @@ class Context {
    * @returns {Context}
    */
   pushError(err) {
-    this.pushText(err.message);
-    const details = [];
-    details.push(`Method: ${err?.request?.method || null}`);
-    details.push(`Host: ${err?.request?.host || null}`);
-    details.push(`Path: ${err?.request?.path || null}`);
-    details.push(`Code: ${err?.response?.data?.error?.code || null}`);
-    details.push(`Message: ${err?.response?.data?.error?.message || null}`);
-    this.pushText(details.join('\n'));
+    this.pushText(`${err.message}`);
+    if (err.config?.baseURL) this.pushText(`${err.config.method.toUpperCase()} ${err.config.baseURL}/${err.config.url}`);
+    if (err.response?.data?.error?.message) this.pushText(err.response.data.error.message);
     return this;
   }
 }

@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.12.4 (2022-12-31)
+
+### Bug Fixes
+
+- Rename `chat` command to `talk`
+
+## 1.12.3 (2022-12-31)
+
+### Bug Fixes
+
+- Update command template
+
+## 1.12.2 (2022-12-30)
+
+### Bug Fixes
+
+- Fix summarize request wording
+
+## 1.12.1 (2022-12-30)
+
+### Bug Fixes
+
+- Handle non-text messages
+
+## 1.12.0 (2022-12-30)
+
+### New Features
+
+- Implement `summarize` command
+
 ## 1.11.3 (2022-12-29)
 
 ### Bug Fixes
@@ -22,7 +52,7 @@
 
 ### New Features
 
-- Add `call` command
+- Implement `call` command
 - Add `SETTING_AI_NAME` environment variable
 - Add `SETTING_AI_ACTIVATED` environment variable
 
@@ -126,7 +156,7 @@
 
 ### Bug Fixes
 
-- Add `ja` to initial languages
+- Add `ja` initial language
 - Add `ai` alias for `chat` command
 
 ## 1.4.4 (2022-12-18)
