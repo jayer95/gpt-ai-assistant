@@ -8,11 +8,36 @@
 
 </div>
 
+> [升級指南：GPT AI Assistant v2](releases/v2.md) :fire:
+
+GPT AI Assistant is an application that is implemented using the OpenAI API and LINE Messaging API. Through the installation process, you can start chatting with your own AI assistant using the LINE mobile app.
+
+## 目次
+
+- [文件](#文件)
+- [介紹](#介紹)
+- [影片教學](#影片教學)
+- [安裝步驟](#安裝步驟)
+- [程式更新](#程式更新)
+- [指令](#指令)
+- [環境變數](#環境變數)
+- [除錯](#除錯)
+- [開發](#開發)
+- [更新日誌](#更新日誌)
+- [貢獻者](#貢獻者)
+- [相關專案](#相關專案)
+- [授權條款](#授權條款)
+
+## 文件
+
+- [中文](README.md)
+- [English](README.en.md)
+
 ## 介紹
 
-GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程式，透過安裝步驟，你可以使用 LINE 手機應用程式與你專屬的 AI 助理聊天。
+GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程式。透過安裝步驟，你可以立即使用 LINE 手機應用程式與你專屬的 AI 助理聊天。
 
-## 範例
+### 範例
 
 <div align="center">
   <img src="demo/screenshot-zh-1.png" width="300"/>
@@ -47,7 +72,7 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
 - 回到 [LINE](https://developers.line.biz/) 平台。
   - 進到「My AI Assistant」頻道頁面，點選「Messaging API」頁籤，設置「Webhook URL」，填入應用程式網址並加上「/webhook」路徑，例如「<https://gpt-ai-assistant.vercel.app/webhook>」，點選「Update」按鈕。
   - 點選「Verify」按鈕，驗證是否呼叫成功。
-  - 將「Use webhook」功能打開。
+  - 將「Use webhook」功能開啟。
   - 將「Auto-reply messages」功能關閉。
   - 將「Greeting messages」功能關閉。
   - 使用 LINE 手機應用程式掃描 QR code，加入好友。
@@ -67,17 +92,57 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
 
 在 LINE 手機應用程式輸入指令，以執行特定功能。
 
+### 一般指令
+
 指令 | 別名 | 說明
 --- | --- | ---
-`指令` | `/command` | 取得指令資訊
-`版本` | `/version` | 取得版本資訊
-`請問` | `/talk` | 與 AI 助理對話
-`請畫` | `/draw` | 請 AI 助理生成圖像
-`總結` | `/summarize` | 請 AI 助理總結對話
-`繼續` | `/continue` | 請 AI 助理繼續回覆
-`開啟自動回覆` | `/activate` | 開啟 AI 自動回覆，須設置 `VERCEL_ACCESS_TOKEN` 環境變數
-`關閉自動回覆` | `/deactivate` | 關閉 AI 自動回覆，須設置 `VERCEL_ACCESS_TOKEN` 環境變數
-`重新啟動` | `/restart` | 重新部署應用程式，須設置 `VERCEL_DEPLOY_HOOK_URL` 環境變數
+`請問` | `/talk` | 與 AI 助理對話。
+`請畫` | `/draw` | 請 AI 助理生成圖像。
+`繼續` | `/continue` | 請 AI 助理繼續回覆。
+`開啟自動回覆` | `/activate` | 開啟 AI 自動回覆，須設置 `VERCEL_ACCESS_TOKEN` 環境變數。
+`關閉自動回覆` | `/deactivate` | 關閉 AI 自動回覆，須設置 `VERCEL_ACCESS_TOKEN` 環境變數。
+`重試` | `/retry` | 重新發送對話。
+
+### 系統指令
+
+指令 | 別名 | 說明
+--- | --- | ---
+`指令` | `/command` | 取得指令資訊。
+`版本` | `/version` | 取得版本資訊。
+`文件` | `/doc` | 取得文件資訊。
+`回報問題` | `/report` | 回報問題。
+`重新啟動` | `/restart` | 重新部署應用程式，須設置 `VERCEL_DEPLOY_HOOK_URL` 環境變數。
+
+### 總結指令
+
+指令 | 別名 | 說明
+--- | --- | ---
+`總結` | `/sum` | 請 AI 助理做出「總結」總結。
+`建議` | `/advise` | 請 AI 助理做出「建議」總結。
+`道歉` | `/apologize` | 請 AI 助理做出「道歉」總結。
+`譴責` | `/blame` | 請 AI 助理做出「譴責」總結。
+`安慰` | `/comfort` | 請 AI 助理做出「安慰」總結。
+`抱怨` | `/complain` | 請 AI 助理做出「抱怨」總結。
+`鼓勵` | `/encourage` | 請 AI 助理做出「鼓勵」總結。
+`嘲諷` | `/laugh` | 請 AI 助理做出「嘲諷」總結。
+
+### 分析指令
+
+指令 | 別名 | 說明
+--- | --- | ---
+`分析` | `/analyze` | 請 AI 助理分析。
+`文學分析` | `/analyze-literarily` | 請 AI 助理以文學角度分析。
+`數學分析` | `/analyze-mathematically` | 請 AI 助理以數學角度分析。
+`命理學分析` | `/analyze-numerologically` | 請 AI 助理以命理學角度分析。
+`哲學分析` | `/analyze-philosophically` | 請 AI 助理以哲學角度分析。
+`心理學分析` | `/analyze-psychologically` | 請 AI 助理以心理學角度分析。
+
+### 翻譯指令
+
+指令 | 別名 | 說明
+--- | --- | ---
+`翻成英文` | `/translate-to-en` | 請 AI 助理將文字翻譯成英文。
+`翻成日文` | `/translate-to-ja` | 請 AI 助理將文字翻譯成日文。
 
 ## 環境變數
 
@@ -85,30 +150,33 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
 
 名稱 | 預設值 | 說明
 --- | --- | ---
-`APP_DEBUG` | `false` | 決定是否在標準輸出印出訊息，值必須是 `true` 或 `false`。
-`APP_WEBHOOK_PATH` | `/webhook` | 決定程式的 webhook URL 路徑。
-`APP_LANG` | `zh` | 決定程式的初始語言，值必須是 `zh`、`en` 或 `ja`。
-`SETTING_AI_NAME` | `AI` | AI 助理的名字，在關閉自動回覆時用來呼叫。
-`SETTING_AI_ACTIVATED` | `null` | AI 助理的狀態，由應用程式控制。
-`VERCEL_ACCESS_TOKEN` | `null` | Vercel 的 [access token](/demo/vercel-access-token.png)
-`VERCEL_DEPLOY_HOOK_URL` | `null` | Vercel 的 [deploy hook URL](/demo/vercel-deploy-hook-url.png)
-`OPENAI_API_KEY` | `null` | OpenAI 的 [API key](/demo/openai-api-key.png)
+`APP_DEBUG` | `false` | 是否在標準輸出印出訊息，值必須是 `true` 或 `false`。
+`APP_WEBHOOK_PATH` | `/webhook` | 客製的 webhook URL 路徑。
+`APP_LANG` | `zh` | 程式的初始語言，值必須是 `zh`、`en` 或 `ja`。
+`APP_MAX_GROUPS` | `1` | 群組數量上限，須搭配 `VERCEL_ACCESS_TOKEN` 環境變數。
+`APP_MAX_USERS` | `5` | 用戶數量上限，須搭配 `VERCEL_ACCESS_TOKEN` 環境變數。
+`BOT_NAME` | `AI` | AI 助理的名字，在關閉自動回覆時用來呼叫。
+`VERCEL_TIMEOUT` | 9000 | 呼叫 Vercel API 的超時時間。
+`VERCEL_PROJECT_NAME` | `gpt-ai-assistant` | Vercel 的專案名稱。當 Vercel 的專案名稱與 GitHub 的專案名稱不一樣時，可以使用此環境變數指定。
+`VERCEL_ACCESS_TOKEN` | `null` | Vercel 的 [access token](/demo/vercel-access-token.png)。
+`VERCEL_DEPLOY_HOOK_URL` | `null` | Vercel 的 [deploy hook URL](/demo/vercel-deploy-hook-url.png)。
+`OPENAI_TIMEOUT` | 9000 | 呼叫 OpenAI API 的超時時間。
+`OPENAI_API_KEY` | `null` | OpenAI 的 [API key](/demo/openai-api-key.png)。
 `OPENAI_COMPLETION_MODEL` | `text-davinci-003` | 詳見 [model](https://beta.openai.com/docs/api-reference/completions/create#completions/create-model) 參數說明。
 `OPENAI_COMPLETION_TEMPERATURE` | `0.9` | 詳見 [temperature](https://beta.openai.com/docs/api-reference/completions/create#completions/create-temperature) 參數說明。
 `OPENAI_COMPLETION_MAX_TOKENS` | `160` | 詳見 [max_tokens](https://beta.openai.com/docs/api-reference/completions/create#completions/create-max_tokens) 參數說明。
 `OPENAI_COMPLETION_FREQUENCY_PENALTY` | `0` | 詳見 [frequency_penalty](https://beta.openai.com/docs/api-reference/completions/create#completions/create-frequency_penalty) 參數說明。
 `OPENAI_COMPLETION_PRESENCE_PENALTY` | `0.6` | 詳見 [presence_penalty](https://beta.openai.com/docs/api-reference/completions/create#completions/create-presence_penalty) 參數說明。
 `OPENAI_IMAGE_GENERATION_SIZE` | `256x256` | 詳見 [size](https://beta.openai.com/docs/api-reference/images/create#images/create-size) 參數說明。
-`LINE_CHANNEL_ACCESS_TOKEN` | `null` | LINE 的 [channel access token](/demo/line-channel-access-token.png)
-`LINE_CHANNEL_SECRET` | `null` | LINE 的 [channel secret](/demo/line-channel-secret.png)
+`LINE_TIMEOUT` | 9000 | 呼叫 LINE Messaging API 的超時時間。
+`LINE_CHANNEL_ACCESS_TOKEN` | `null` | LINE 的 [channel access token](/demo/line-channel-access-token.png)。
+`LINE_CHANNEL_SECRET` | `null` | LINE 的 [channel secret](/demo/line-channel-secret.png)。
 
 點選「Redeploy」按鈕，以重新部署。
 
-## 常見問題
-
-- 遇到「403 Forbidden」的問題，請檢查環境變數是否設置正確。
-- 遇到「404 Not Found」的問題，請檢查 webhook URL 是否設置正確。
-- 遇到「429 Too Many Requests」的問題，請檢查 OpenAI 的使用額度。
+<div align="center">
+  <img src="demo/vercel-redeploy.png" width="300"/>
+</div>
 
 ## 除錯
 
@@ -136,9 +204,17 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
   <img src="demo/vercel-logs.png" width="300"/>
 </div>
 
-如果還是無法解決，請到「[Issues](https://github.com/memochou1993/gpt-ai-assistant/issues)」頁面，點選「New issue」按鈕，描述你的問題，並附上螢幕截圖。
+### 常見問題
 
-## 功能建議
+- 遇到「403 Forbidden」的問題，請檢查環境變數是否設置正確。
+- 遇到「404 Not Found」的問題，請檢查 webhook URL 是否設置正確。
+- 遇到「429 Too Many Requests」的問題，請檢查 OpenAI 的使用額度。
+
+### 錯誤回報
+
+請到「[Issues](https://github.com/memochou1993/gpt-ai-assistant/issues)」頁面，點選「New issue」按鈕，描述你的問題，並附上螢幕截圖。
+
+### 功能建議
 
 請到「[Issues](https://github.com/memochou1993/gpt-ai-assistant/issues)」頁面，點選「New issue」按鈕，描述你的功能建議。
 
@@ -183,11 +259,10 @@ npm run test
 > jest
 
   console.info
-    === 000000 ===
-    
-    AI: 嗨！我可以怎麼幫助你？
-    Human: 嗨？
-    AI: OK!
+    === 000001 ===
+
+    Human: 嗨！
+    AI: 好的！
 
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
@@ -209,7 +284,7 @@ cp .env.example .env
 APP_DEBUG=true
 APP_PORT=3000
 
-VERCEL_GIT_REPO_SLUG=gpt-ai-assistant
+VERCEL_PROJECT_NAME=gpt-ai-assistant
 VERCEL_ACCESS_TOKEN=<your_vercel_access_token>
 
 OPENAI_API_KEY=<your_openai_api_key>
@@ -237,14 +312,13 @@ ngrok http 3000
 查看結果。
 
 ```bash
-> gpt-ai-assistant@1.0.0 dev
+> gpt-ai-assistant@0.0.0 dev
 > node api/index.js
 
 === 0x1234 ===
 
-AI: 哈囉！
-Human: 嗨？
-AI: 很高興見到你！有什麼可以為你服務的嗎？
+Memo: 嗨
+AI: 你好嗎？
 ```
 
 ### 使用 Docker 容器
@@ -261,7 +335,7 @@ cp .env.example .env
 APP_DEBUG=true
 APP_PORT=3000
 
-VERCEL_GIT_REPO_SLUG=gpt-ai-assistant
+VERCEL_PROJECT_NAME=gpt-ai-assistant
 VERCEL_ACCESS_TOKEN=<your_vercel_access_token>
 
 OPENAI_API_KEY=<your_openai_api_key>
@@ -280,16 +354,17 @@ docker-compose up -d
 
 請到「[Releases](https://github.com/memochou1993/gpt-ai-assistant/releases)」頁面查看發布通知。
 
-## 特別感謝
+## 貢獻者
 
 - [jayer95](https://github.com/jayer95) - Debugging and testing
-- [kkdai/LINE-Bot-ChatSummarizer](https://github.com/kkdai/LINE-Bot-ChatSummarizer) - Idea of summarize command
+- [kkdai/LINE-Bot-ChatSummarizer](https://github.com/kkdai/LINE-Bot-ChatSummarizer) - Idea of "sum" command
 - [All other contributors](https://github.com/memochou1993/gpt-ai-assistant/graphs/contributors)
 
 ## 相關專案
 
 - [line-bot-node](https://github.com/memochou1993/line-bot-node)
-- [openai-cli-node](https://github.com/memochou1993/openai-cli-node)
+- [gpt-cli-node](https://github.com/memochou1993/gpt-cli-node)
+- [gpt-cli-rust](https://github.com/memochou1993/gpt-cli-rust)
 
 ## 授權條款
 

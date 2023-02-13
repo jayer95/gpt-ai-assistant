@@ -1,5 +1,74 @@
 # Changelog
 
+## 2.3.0 (2023-02-11)
+
+### New Features
+
+- Add `VERCEL_TIMEOUT` environment variable
+- Add `OPENAI_TIMEOUT` environment variable
+- Add `LINE_TIMEOUT` environment variable
+
+## 2.2.0 (2023-02-04)
+
+### New Features
+
+- Implement `retry` command
+
+## 2.1.4 (2023-01-15)
+
+### Bug Fixes
+
+- Ignore non-text message events
+
+## 2.1.3 (2023-01-15)
+
+### Bug Fixes
+
+- Add command aliases
+
+## 2.1.2 (2023-01-15)
+
+### Bug Fixes
+
+- Add command aliases
+
+## 2.1.1 (2023-01-14)
+
+### Bug Fixes
+
+- Fix `enquire` command
+
+## 2.1.0 (2023-01-11)
+
+### New Features
+
+- Add `VERCEL_PROJECT_NAME` environment variable
+
+## 2.0.1 (2023-01-11)
+
+### Bug Fixes
+
+- Add logs for webhook endpoint
+
+## 2.0.0 (2023-01-10)
+
+### New Features
+
+- Implement `sum` command
+- Implement `analyze` command
+- Implement `translate` command
+- Add `BOT_NAME` environment variable
+- Add `APP_MAX_GROUPS` environment variable
+- Add `APP_MAX_USERS` environment variable
+
+### Bug Fixes
+
+- Remove `SETTING_AI_NAME` environment variable
+- Remove `SETTING_AI_ACTIVATED` environment variable
+- Refactor `storage` module
+- Refactor `prompt` module
+- Refactor `history` module
+
 ## 1.12.4 (2022-12-31)
 
 ### Bug Fixes
