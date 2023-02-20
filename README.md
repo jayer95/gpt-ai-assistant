@@ -8,8 +8,6 @@
 
 </div>
 
-> [升級指南：GPT AI Assistant v2](releases/v2.md) :fire:
-
 GPT AI Assistant is an application that is implemented using the OpenAI API and LINE Messaging API. Through the installation process, you can start chatting with your own AI assistant using the LINE mobile app.
 
 ## 目次
@@ -99,9 +97,15 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
 `請問` | `/talk` | 與 AI 助理對話。
 `請畫` | `/draw` | 請 AI 助理生成圖像。
 `繼續` | `/continue` | 請 AI 助理繼續回覆。
-`開啟自動回覆` | `/activate` | 開啟 AI 自動回覆，須設置 `VERCEL_ACCESS_TOKEN` 環境變數。
-`關閉自動回覆` | `/deactivate` | 關閉 AI 自動回覆，須設置 `VERCEL_ACCESS_TOKEN` 環境變數。
+`開啟自動回覆` | `/activate` | 將 AI 自動回覆設為開啟，須設置 `VERCEL_ACCESS_TOKEN` 環境變數。
+`關閉自動回覆` | `/deactivate` | 將 AI 自動回覆設為關閉，須設置 `VERCEL_ACCESS_TOKEN` 環境變數。
 `重試` | `/retry` | 重新發送對話。
+
+### 查詢指令
+
+指令 | 別名 | 說明
+--- | --- | ---
+`查詢` | `/search` | 請 AI 助理在 Google 上查詢資料，須設置 `SERPAPI_API_KEY` 環境變數。
 
 ### 系統指令
 
@@ -155,7 +159,9 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
 `APP_LANG` | `zh` | 程式的初始語言，值必須是 `zh`、`en` 或 `ja`。
 `APP_MAX_GROUPS` | `1` | 群組數量上限，須搭配 `VERCEL_ACCESS_TOKEN` 環境變數。
 `APP_MAX_USERS` | `5` | 用戶數量上限，須搭配 `VERCEL_ACCESS_TOKEN` 環境變數。
-`BOT_NAME` | `AI` | AI 助理的名字，在關閉自動回覆時用來呼叫。
+`BOT_NAME` | `AI` | AI 助理的名字，在 AI 自動回覆設為關閉時呼叫。
+`BOT_DEACTIVATED` | `false` | 在一開始將 AI 自動回覆設為關閉，值必須是 `true` 或 `false`。
+`ERROR_TIMEOUT_DISABLED` | `false` | 將呼叫 API 超時的錯誤關閉，值必須是 `true` 或 `false`。
 `VERCEL_TIMEOUT` | 9000 | 呼叫 Vercel API 的超時時間。
 `VERCEL_PROJECT_NAME` | `gpt-ai-assistant` | Vercel 的專案名稱。當 Vercel 的專案名稱與 GitHub 的專案名稱不一樣時，可以使用此環境變數指定。
 `VERCEL_ACCESS_TOKEN` | `null` | Vercel 的 [access token](/demo/vercel-access-token.png)。
@@ -171,6 +177,7 @@ GPT AI Assistant 是基於 OpenAI API 與 LINE Messaging API 實作的應用程�
 `LINE_TIMEOUT` | 9000 | 呼叫 LINE Messaging API 的超時時間。
 `LINE_CHANNEL_ACCESS_TOKEN` | `null` | LINE 的 [channel access token](/demo/line-channel-access-token.png)。
 `LINE_CHANNEL_SECRET` | `null` | LINE 的 [channel secret](/demo/line-channel-secret.png)。
+`SERPAPI_API_KEY` | `null` | SerpApi 的 [API key](/demo/serpapi-api-key.png)。
 
 點選「Redeploy」按鈕，以重新部署。
 
@@ -357,7 +364,8 @@ docker-compose up -d
 ## 貢獻者
 
 - [jayer95](https://github.com/jayer95) - Debugging and testing
-- [kkdai/LINE-Bot-ChatSummarizer](https://github.com/kkdai/LINE-Bot-ChatSummarizer) - Idea of "sum" command
+- [kkdai](https://github.com/kkdai) - Idea of "sum" command
+- [Dayu0815](https://github.com/Dayu0815) - Idea of "search" command
 - [All other contributors](https://github.com/memochou1993/gpt-ai-assistant/graphs/contributors)
 
 ## 相關專案

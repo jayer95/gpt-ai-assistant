@@ -1,5 +1,29 @@
 # Changelog
 
+## 3.0.0 (2023-02-18)
+
+### New Features
+
+- Implement `search` command
+
+## 2.5.1 (2023-02-18)
+
+### New Features
+
+- Rename `BOT_TIMEOUT_DISABLED` environment variable to `ERROR_TIMEOUT_DISABLED`
+
+## 2.5.0 (2023-02-18)
+
+### New Features
+
+- Add `BOT_TIMEOUT_DISABLED` environment variable
+
+## 2.4.0 (2023-02-17)
+
+### New Features
+
+- Add `BOT_DEACTIVATED` environment variable
+
 ## 2.3.0 (2023-02-11)
 
 ### New Features

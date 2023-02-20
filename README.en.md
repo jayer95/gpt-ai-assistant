@@ -95,6 +95,12 @@ Name | Alias | Description
 `Deactivate` | `/deactivate` | Deactivate auto-reply. The `VERCEL_ACCESS_TOKEN` environment variable is required.
 `Retry` | `/retry` | Resend prompt。
 
+### Search Commands
+
+Name | Alias | Description
+--- | --- | ---
+`Search` | `/search` | Ask AI Assistant to search on Google. The `SERPAPI_API_KEY` environment variable is required.
+
 ### System Commands
 
 Name | Alias | Description
@@ -148,6 +154,8 @@ Name | Default Value | Description
 `APP_MAX_GROUPS` | `1` | Maximum groups. The `VERCEL_ACCESS_TOKEN` environment variable is required.
 `APP_MAX_USERS` | `5` | Maximum users. The `VERCEL_ACCESS_TOKEN` environment variable is required.
 `BOT_NAME` | `AI` | Name of AI Assistant. This is used to call AI Assistant when auto-reply is deactivated.
+`BOT_DEACTIVATED` | `false` | Deactivate auto-reply at the beginning. The value must be `true` of `false`.
+`ERROR_TIMEOUT_DISABLED` | `false` | Disable timeout error. The value must be `true` of `false`.
 `VERCEL_TIMEOUT` | 9000 | Timeout for Vercel API calls.
 `VERCEL_PROJECT_NAME` | `gpt-ai-assistant` | Custom Vercel project name. You can use this environment variable when the Vercel project name differs from the GitHub project name.
 `VERCEL_ACCESS_TOKEN` | `null` | Vercel [access token](/demo/vercel-access-token.png)
@@ -163,6 +171,7 @@ Name | Default Value | Description
 `LINE_TIMEOUT` | 9000 | Timeout for LINE Messaging API calls.
 `LINE_CHANNEL_ACCESS_TOKEN` | `null` | LINE [channel access token](/demo/line-channel-access-token.png)
 `LINE_CHANNEL_SECRET` | `null` | LINE [channel secret](/demo/line-channel-secret.png)
+`SERPAPI_API_KEY` | `null` | SerpApi [API key](/demo/serpapi-api-key.png)。
 
 Click the "Redeploy" button to redeploy if there are any changes.
 
@@ -311,7 +320,8 @@ Detailed changes for each release are documented in the [release notes](https://
 ## Credits
 
 - [jayer95](https://github.com/jayer95) - Debugging and testing
-- [kkdai/LINE-Bot-ChatSummarizer](https://github.com/kkdai/LINE-Bot-ChatSummarizer) - Idea of "sum" command
+- [kkdai](https://github.com/kkdai) - Idea of "sum" command
+- [Dayu0815](https://github.com/Dayu0815) - Idea of "search" command
 - [All other contributors](https://github.com/memochou1993/gpt-ai-assistant/graphs/contributors)
 
 ## Related Projects

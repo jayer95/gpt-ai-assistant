@@ -109,10 +109,10 @@ class Context {
     const sources = getSources();
     const newSources = {};
     if (this.event.isGroup && !sources[this.groupId]) {
-      newSources[this.groupId] = new Source({ type: SOURCE_TYPE_GROUP });
+      newSources[this.groupId] = new Source({ type: SOURCE_TYPE_GROUP, isActivated: !config.BOT_DEACTIVATED });
     }
     if (!sources[this.userId]) {
-      newSources[this.userId] = new Source({ type: SOURCE_TYPE_USER });
+      newSources[this.userId] = new Source({ type: SOURCE_TYPE_USER, isActivated: !config.BOT_DEACTIVATED });
     }
     Object.assign(sources, newSources);
     if (Object.keys(newSources).length > 0) await setSources(sources);
@@ -210,6 +210,7 @@ class Context {
   pushError(err) {
     this.error = err;
     if (err.code === 'ECONNABORTED') {
+      if (config.ERROR_TIMEOUT_DISABLED) return this;
       return this.pushText(t('__ERROR_ECONNABORTED'), [COMMAND_BOT_RETRY]);
     }
     this.pushText(err.message);

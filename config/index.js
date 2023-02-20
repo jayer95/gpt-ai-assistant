@@ -16,6 +16,8 @@ const config = Object.freeze({
   APP_MAX_GROUPS: Number(env.APP_MAX_GROUPS) || 1,
   APP_MAX_USERS: Number(env.APP_MAX_USERS) || 5,
   BOT_NAME: env.BOT_NAME || 'AI',
+  BOT_DEACTIVATED: env.BOT_DEACTIVATED === 'true' || false,
+  ERROR_TIMEOUT_DISABLED: env.ERROR_TIMEOUT_DISABLED === 'true' || false,
   VERCEL_ENV: env.VERCEL_ENV || null,
   VERCEL_TIMEOUT: env.VERCEL_TIMEOUT || 9000,
   VERCEL_PROJECT_NAME: env.VERCEL_PROJECT_NAME || env.VERCEL_GIT_REPO_SLUG || null,
@@ -32,6 +34,8 @@ const config = Object.freeze({
   LINE_TIMEOUT: env.LINE_TIMEOUT || 9000,
   LINE_CHANNEL_ACCESS_TOKEN: env.LINE_CHANNEL_ACCESS_TOKEN || null,
   LINE_CHANNEL_SECRET: env.LINE_CHANNEL_SECRET || null,
+  SERPAPI_TIMEOUT: env.SERPAPI_TIMEOUT || 9000,
+  SERPAPI_API_KEY: env.SERPAPI_API_KEY || null,
 });
 
 export default config;
