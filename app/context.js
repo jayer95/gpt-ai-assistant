@@ -4,9 +4,9 @@ import { t } from '../locales/index.js';
 import {
   MESSAGE_TYPE_IMAGE, MESSAGE_TYPE_TEXT, SOURCE_TYPE_GROUP, SOURCE_TYPE_USER,
 } from '../services/line.js';
-import fetchUser from '../utils/fetch-user.js';
+import { fetchUser } from '../utils/index.js';
 import { Command, COMMAND_BOT_RETRY } from './commands/index.js';
-import Event from './event.js';
+import Event from './models/event.js';
 import { updateHistory } from './history/index.js';
 import {
   ImageMessage, Message, TemplateMessage, TextMessage,

@@ -4,16 +4,16 @@ import { t } from '../../locales/index.js';
 import { PARTICIPANT_AI, PARTICIPANT_HUMAN } from '../../services/openai.js';
 import Sentence from './sentence.js';
 
-const MAX_SENTENCES = 12;
-const MAX_TOKENS = 1024;
+const MAX_SENTENCES = config.APP_MAX_PROMPT_SENTENCES;
+const MAX_TOKENS = config.APP_MAX_PROMPT_TOKENS;
 
 class Prompt {
   sentences = [];
 
   constructor() {
     this
-      .write(PARTICIPANT_HUMAN, `${t('__COMPLETION_DEFAULT_HUMAN_GREETING')(config.HUMAN_NAME)}${config.HUMAN_BACKGROUND}。`)
-      .write(PARTICIPANT_AI, `${t('__COMPLETION_DEFAULT_AI_GREETING')(config.BOT_NAME)}${config.BOT_BACKGROUND}。`);
+      .write(PARTICIPANT_HUMAN, `${t('__COMPLETION_DEFAULT_HUMAN_GREETING')(config.HUMAN_NAME)}${config.HUMAN_INIT_PROMPT}。`)
+      .write(PARTICIPANT_AI, `${t('__COMPLETION_DEFAULT_AI_GREETING')(config.BOT_NAME)}${config.BOT_INIT_PROMPT}。`);
   }
 
   /**

@@ -1,5 +1,76 @@
 # Changelog
 
+## 3.7.0 (2023-02-26)
+
+### New Features
+
+- Add demo for `search` command
+- Add `SERPAPI_LOCATION` environment variable
+- Add `SERPAPI_LANG` environment variable
+
+## 3.6.0 (2023-02-26)
+
+### New Features
+
+- Add `APP_API_TIMEOUT` environment variable
+- Add `APP_MAX_PROMPT_SENTENCES` environment variable
+- Add `APP_MAX_PROMPT_TOKENS` environment variable
+
+## 3.5.0 (2023-02-26)
+
+### New Features
+
+- Rename `HUMAN_BACKGROUND` environment variable to `HUMAN_INIT_PROMPT`
+- Rename `BOT_BACKGROUND` environment variable to `BOT_INIT_PROMPT`
+
+## 3.4.1 (2023-02-25)
+
+### Bug Fixes
+
+- Fix default bot name
+
+## 3.4.0 (2023-02-24)
+
+### New Features
+
+- Add `info` endpoint
+
+## 3.3.5 (2023-02-24)
+
+### Bug Fixes
+
+- Fix prompt wording
+
+## 3.3.4 (2023-02-24)
+
+### Bug Fixes
+
+- Fix prompt wording
+
+## 3.3.3 (2023-02-24)
+
+### Bug Fixes
+
+- Fix tests
+
+## 3.3.2 (2023-02-23)
+
+### Bug Fixes
+
+- Fix prompt wording
+
+## 3.3.1 (2023-02-23)
+
+### Bug Fixes
+
+- Fix prompt wording
+
+## 3.3.0 (2023-02-23)
+
+### New Features
+
+- Add `BOT_TONE` environment variable
+
 ## 3.2.1 (2023-02-22)
 
 ### Bug Fixes
