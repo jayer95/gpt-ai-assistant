@@ -1,5 +1,47 @@
 # Changelog
 
+## 4.2.0 (2023-03-05)
+
+### New Features
+
+- Add `APP_INIT_PROMPT` environment variable
+
+## 4.1.3 (2023-03-05)
+
+### Bug Fixes
+
+- Fix `add-mark` util
+
+## 4.1.2 (2023-03-05)
+
+### Bug Fixes
+
+- Update `add-mark` util
+
+## 4.1.1 (2023-03-05)
+
+### Bug Fixes
+
+- End text with dot
+
+## 4.1.0 (2023-03-05)
+
+- Support `whisper-1` model
+- Add `opencc` text converter
+- Store display name and group name to storage
+
+## 4.0.4 (2023-03-03)
+
+### Bug Fixes
+
+- Optimize `search` command
+
+## 4.0.3 (2023-03-03)
+
+### Bug Fixes
+
+- Optimize `search` and `draw` commands
+
 ## 4.0.2 (2023-03-02)
 
 ### Bug Fixes

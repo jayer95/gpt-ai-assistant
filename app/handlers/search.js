@@ -19,16 +19,16 @@ const check = (context) => context.hasCommand(COMMAND_BOT_SEARCH);
  */
 const exec = (context) => check(context) && (
   async () => {
-    let { trimmedText } = context;
+    let trimmedText = context.trimmedText.replace(COMMAND_BOT_SEARCH.text, '');
     const prompt = getPrompt(context.userId);
     if (!config.SERPAPI_API_KEY) context.pushText(t('__ERROR_MISSING_ENV')('SERPAPI_API_KEY'));
     try {
-      const { answer } = await fetchAnswer(`${trimmedText}？`);
+      const { answer } = await fetchAnswer(trimmedText);
       trimmedText = `${t('__COMPLETION_SEARCH')(answer || t('__COMPLETION_SEARCH_NOT_FOUND'), trimmedText)}`;
     } catch (err) {
       return context.pushError(err);
     }
-    prompt.write(ROLE_HUMAN, `${trimmedText}。`).write(ROLE_AI);
+    prompt.write(ROLE_HUMAN, `${trimmedText}`).write(ROLE_AI);
     try {
       const { text, isFinishReasonStop } = await generateCompletion({ prompt });
       prompt.patch(text);
