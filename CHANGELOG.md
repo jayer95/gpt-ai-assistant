@@ -1,5 +1,37 @@
 # Changelog
 
+## 4.4.4 (2023-03-21)
+
+### Bug Fixes
+
+- Fix default value of `APP_MAX_GROUPS` environment variable
+- Fix default value of `APP_MAX_USERS` environment variable
+
+## 4.4.3 (2023-03-11)
+
+### Bug Fixes
+
+- Fix wording of `doc` and `report` commands
+
+## 4.4.2 (2023-03-11)
+
+### Bug Fixes
+
+- Add `ERROR_MESSAGE_DISABLED` environment variable
+- Deprecate `ERROR_TIMEOUT_DISABLED` environment variable
+
+## 4.4.1 (2023-03-10)
+
+### Bug Fixes
+
+- Add default max tokens for chat completion api
+
+## 4.4.0 (2023-03-08)
+
+### New Features
+
+- Support snapshots of `gpt-3.5-turbo` model
+
 ## 4.3.0 (2023-03-08)
 
 ### New Features
